@@ -30,34 +30,6 @@
     </header>
 
     <main class="container-fluid">
-      <!-- <div class="row justify-content-center mt-3">
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header p-0 pt-2">
-              <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <button class="nav-link active" aria-current="page" data-bs-target="#test">Cuaca</button>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-bs-target="#test2">Kelembapan</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-bs-target="#test3">Angin</a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body p-0">
-              <div id="test">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae officiis eaque cumque rem neque asperiores accusamus nesciunt eum commodi qui veritatis accusantium, perferendis nulla maiores minima aliquam, quos est quibusdam!</p>
-              </div>
-              <div id="test2">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae officiis eaque cumque rem neque asperiores accusamus nesciunt eum commodi qui veritatis accusantium, perferendis nulla maiores minima aliquam, quos est quibusdam!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
       <div class="row mt-3 mb-3">
         <div class="col-lg-12" id="divWeatherResult"></div>
       </div>

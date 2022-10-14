@@ -1,0 +1,70 @@
+:root {
+  --blue: #0d6efd; 
+  --water: #d4f1f9;
+  --denim: #6F8FAF;
+  --indigo: #6610f2; 
+  --purple: #6f42c1;
+  --pink: #d63384;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yelow: #ffc107;
+  --brass: #E1C16E;
+  --teal: #20c997;
+  --cyan: #0dcaf0;
+  --jet-black: #343434;
+  --matte-black: #28282B;
+  --charcoal: #36454F;
+  --gray: #999999;
+  --smoke: #BEBDB8;
+  --pearl-river: #D9DDDC;
+  --off-white: #FAF9F6;
+  --bone-white: #F9F6EE;
+}
+
+.accordion {
+  --bs-accordion-active-color: #ffffff;
+  --bs-accordion-active-bg: #212529;
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.color-blue {         color: var(--blue); }
+.color-water {        color: var(--water); }
+.color-denim {        color: var(--denim); }
+.color-indigo {       color: var(--indigo); }
+.color-purple {       color: var(--purple); }
+.color-pink {         color: var(--pink); }
+.color-red {          color: var(--red);  }
+.color-orange {       color: var(--orange); }
+.color-yellow {       color: var(--yellow); }
+.color-brass {        color: var(--brass); }
+.color-teal {         color: var(--teal); }
+.color-cyan {         color: var(--cyan); }
+.color-jet-black {    color: var(--jet-black);  }
+.color-matte-black {  color: var(--matte-black);  }
+.color-charcoal {     color: var(--charcoal); }
+.color-gray {         color: var(--gray); }
+.color-smoke {        color: var(--smoke); }
+.color-pearl-river {  color: var(--pearl-river); }
+.color-off-white {    color: var(--off-white); }
+.color-bone-white {   color: var(--bone-white); }
+
+.bg-blue {         background-color: var(--blue); }
+.bg-water {        background-color: var(--water); }
+.bg-denim {        background-color: var(--denim); }
+.bg-indigo {       background-color: var(--indigo); }
+.bg-purple {       background-color: var(--purple); }
+.bg-pink {         background-color: var(--pink); }
+.bg-red {          background-color: var(--red);  }
+.bg-orange {       background-color: var(--orange); }
+.bg-yellow {       background-color: var(--yellow); }
+.bg-brass {        background-color: var(--brass); }
+.bg-teal {         background-color: var(--teal); }
+.bg-cyan {         background-color: var(--cyan); }
+.bg-jet-black {    background-color: var(--jet-black);  }
+.bg-matte-black {  background-color: var(--matte-black);  }
+.bg-charcoal {     background-color: var(--charcoal); }
+.bg-gray {         background-color: var(--gray); }
+.bg-smoke {        background-color: var(--smoke); }
+.bg-pearl-river {  background-color: var(--pearl-river); }
+.bg-off-white {    background-color: var(--off-white); }
+.bg-bone-white {   background-color: var(--bone-white); }

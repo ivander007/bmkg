@@ -10,6 +10,7 @@
   //   echo "Error";
   // }
 
+  session_start();
   $method = @$_GET['method'];
 
   if ($method == "getDataCuaca") {
@@ -23,9 +24,13 @@
 
   function getDataSession()
   {
-    session_start();
+    if (isset($_SESSION)) {
+      $lokasi = $_SESSION["lokasi"];
+    } else {
+      $lokasi = "Indonesia";
+    }
     $sessionData  = array(
-      'Lokasi' => $_SESSION["lokasi"], 
+      'Lokasi' => $lokasi, 
     );
     echo json_encode($sessionData);
   }
@@ -36,7 +41,6 @@
     $xml    = @simplexml_load_file($url);
     if ($xml) {
       // tambah / update data session
-      session_start();
       $_SESSION["lokasi"] = $lokasi;
 
       $result = json_decode(json_encode((array)$xml), TRUE);

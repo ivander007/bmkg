@@ -24,7 +24,7 @@
 
   function getDataSession()
   {
-    if (isset($_SESSION)) {
+    if ($_SESSION) {
       $lokasi = $_SESSION["lokasi"];
     } else {
       $lokasi = "Indonesia";

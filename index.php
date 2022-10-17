@@ -19,18 +19,33 @@
 <body class="d-flex flex-column min-vh-100">
   <div class="wrapper">
     <header class="container-fluid blog-header lh-1 py-3 bg-dark text-light">
-      <div class="row flex-nowrap justify-content-between align-items-center">
-        <div class="col-8 text-left">
-          <h5 class="blog-header-logo mb-0"><i class="fas fa-umbrella"></i> Badan Meramal Keadaan Geluduk</h5>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <div class="col-6 text-left mt-2 mb-2">
+            <h5 class="blog-header-logo mb-0"><i class="fas fa-umbrella"></i> Badan Meramal Keadaan Geluduk</h5>
+          </div>
+          <!-- <div class="col-6 d-flex justify-content-end align-items-center"></div> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse flex-row-reverse collapse" id="navbarCollapse">
+            <form class="d-flex" role="search">
+              <div class="input-group input-group-sm">
+                <select class="form-select" id="cmbPilihLokasi" aria-label="Pilih Provinsi">
+                  <option selected value="Indonesia">Kota-kota Besar di Indonesia</option>
+                  <option disabled>Pilih Provinsi</option>
+                </select>
+                <button class="btn btn-outline-light" type="button" onclick="getDataCuaca()"><i class="fas fa-search"></i> Cari</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="col-4 d-flex justify-content-end align-items-center">
-          <button class="btn btn-sm btn-success" onclick="getDataCuaca()"><i class="fas fa-sync-alt"></i> Perbarui</button>
-        </div>
-      </div>
+      </nav>
     </header>
 
-    <main class="container-fluid">
-      <div class="row mt-3 mb-3">
+    <main class="flex-shrink-0 container-fluid ">
+      <div class="row mt-2 mb-4 pt-5">
         <div class="col-lg-12" id="divWeatherResult"></div>
       </div>
     </main>

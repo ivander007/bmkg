@@ -1,16 +1,88 @@
 
 $(function(){
-  getDataCuaca();
+
+  if ($("#cmbPilihLokasi").length > 0) {
+    // ambil data provinsi
+    var arrData = getDataProvinsi();
+    // looping data untuk append option di select
+    Object.entries(arrData).forEach(data => {
+      const [key, value] = data;
+      $("#cmbPilihLokasi").append($("<option>", {
+        value: value,
+        text: key
+      }));
+    });
+    // ambil data session
+    getDataSession();
+  }
 });
 
+function getDataSession() {
+  $.ajax({
+    url: "Main.php",
+    type: "GET",
+    data:{
+      method: "getDataSession"
+    },
+    success: function (result) {
+      var arrDataSession = JSON.parse(result);
+      // ubah pilihan select provinsi menjadi data lokasi terakhir
+      $("#cmbPilihLokasi").val(arrDataSession.Lokasi).trigger("change");
+      getDataCuaca();
+    }
+  });
+}
+
+function getDataProvinsi() {
+  var arrDataProvinsi = {
+    "Provinsi Aceh" : "Aceh",
+    "Provinsi Bali" : "Bali",
+    "Provinsi Bangka Belitung" : "BangkaBelitung",
+    "Provinsi Banten" : "Banten",
+    "Provinsi Bengkulu" : "Bengkulu",
+    "Provinsi DI Yogyakarta" : "DIYogyakarta",
+    "Provinsi DKI Jakarta" : "DKIJakarta",
+    "Provinsi Gorontalo" : "Gorontalo",
+    "Provinsi Jambi" : "Jambi",
+    "Provinsi Jawa Barat" : "JawaBarat",
+    "Provinsi Jawa Tengah" : "JawaTengah",
+    "Provinsi Jawa Timur" : "JawaTimur",
+    "Provinsi Kalimantan Barat" : "KalimantanBarat",
+    "Provinsi Kalimantan Selatan" : "KalimantanSelatan",
+    "Provinsi Kalimantan Tengah" : "KalimantanTengah",
+    "Provinsi Kalimantan Timur" : "KalimantanTimur",
+    "Provinsi Kalimantan Utara" : "KalimantanUtara",
+    "Provinsi Kepulauan Riau" : "KepulauanRiau",
+    "Provinsi Lampung" : "Lampung",
+    "Provinsi Maluku" : "Maluku",
+    "Provinsi Maluku Utara" : "Maluku Utara",
+    "Provinsi Nusa Tenggara Barat" : "NusaTenggaraBarat",
+    "Provinsi Nusa Tenggara Timur" : "NusaTenggaraTimur",
+    "Provinsi Papua" : "Papua",
+    "Provinsi Papua Barat" : "PapuaBarat",
+    "Provinsi Riau" : "Riau",
+    "Provinsi Sulawesi Barat" : "SulawesiBarat",
+    "Provinsi Sulawesi Selatan" : "SulawesiSelatan",
+    "Provinsi Sulawesi Tengah" : "SulawesiTengah",
+    "Provinsi Sulawesi Tenggara" : "SulawesiTenggara",
+    "Provinsi Sulawesi Utara" : "SulawesiUtara",
+    "Provinsi Sumatera Barat" : "SumateraBarat",
+    "Provinsi Sumatera Selatan" : "SumateraSelatan",
+    "Provinsi Sumatera Utara" : "SumateraUtara",
+  }
+
+  return arrDataProvinsi;
+}
+
 function getDataCuaca() {
-  var provinsi  = "Banten";
+  var provinsi  = $("#cmbPilihLokasi").find(":selected").val();
   $("#divWeatherResult").html("");
   $("#loadingModal").modal("show");
   $.ajax({
     url: "Main.php",
-    type: "POST",
+    type: "GET",
     data:{
+      method: "getDataCuaca",
       lokasi: provinsi
     },
     success: function (result) {
@@ -34,11 +106,17 @@ function getDataCuaca() {
   
           var now     = moment(timeStamp).format("dddd, D MMMM YYYY");
           var twoDays = moment(timeStamp).add(2, 'd').format("dddd, D MMMM YYYY");
+
+          if (provinsi == "Indonesia") {
+            var title = "<h5>Kota-kota Besar di Indonesia, Periode : "+now+" - "+twoDays+"</h5>";
+          } else {
+            var title = "<h5>"+$("#cmbPilihLokasi option:selected").text()+", Periode : "+now+" - "+twoDays+"</h5>";
+          }
   
           $("#divWeatherResult").html(`
             <div class="text-center">
-              <h5>Provinsi `+provinsi+` `+now+` - `+twoDays+`</h5>
-              <p class="text-muted">Data terakhir : `+timeStamp+`</p><hr>
+              `+title+`
+              <p class="text-muted">Data terakhir : `+timeStamp+` | Sumber Data : <a href="https://data.bmkg.go.id/prakiraan-cuaca/" target="_BLANK"">BMKG Indonesia</a></p><hr>
             </div>
             <div class="accordion" id="accordionArea"></div>
           `);
